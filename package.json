@@ -1,8 +1,8 @@
 {
   "name": "react-fancy-button",
-  "version": "0.1.1",
+  "version": "0.1.6",
   "description": "A button with a spinner that is triggered by a boolean",
-  "main": "index.js",
+  "main": "./dist/FancyButton.js",
   "scripts": {
     "build": "rm -rf dist && mkdir -p dist && babel src/FancyButton.jsx --out-file dist/FancyButton.js && node ./scripts/build-dist",
     "test": "echo \"Error: no test specified\" && exit 1"
