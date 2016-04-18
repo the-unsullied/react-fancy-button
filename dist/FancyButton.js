@@ -69,7 +69,7 @@ exports.default = _react2.default.createClass({
         className: (0, _classnames2.default)("fancy-button", this.props.classes),
         disabled: this.props.disabled,
         onClick: this.props.onClick },
-      true ? _react2.default.createElement(
+      this.props.trigger ? _react2.default.createElement(
         'div',
         { className: 'padding' },
         _react2.default.createElement(_Spinner2.default, { opts: opts })
