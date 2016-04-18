@@ -50,7 +50,7 @@ export default React.createClass({
       className={classnames("fancy-button", this.props.classes)}
       disabled={this.props.disabled}
       onClick={this.props.onClick}>
-      {true ? <div className="padding">
+      {this.props.trigger ? <div className="padding">
         <Spinner opts={opts} />
       </div> : <span>
         {this.props.label}
