@@ -2,7 +2,7 @@
 // https://github.com/fgnass/spin.js/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Spinner from '../assets/spin.js-master/spin.min';
+import Spinner from './../assets/spin.js-master/spin.min';
 
 export default React.createClass({
 

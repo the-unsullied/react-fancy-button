@@ -16,7 +16,7 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Spinner = require('./Spinner.jsx!');
+var _Spinner = require('./Spinner');
 
 var _Spinner2 = _interopRequireDefault(_Spinner);
 
@@ -69,7 +69,7 @@ exports.default = _react2.default.createClass({
         className: (0, _classnames2.default)("fancy-button", this.props.classes),
         disabled: this.props.disabled,
         onClick: this.props.onClick },
-      this.props.trigger ? _react2.default.createElement(
+      true ? _react2.default.createElement(
         'div',
         { className: 'padding' },
         _react2.default.createElement(_Spinner2.default, { opts: opts })

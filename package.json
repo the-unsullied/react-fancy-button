@@ -1,10 +1,10 @@
 {
   "name": "react-fancy-button",
-  "version": "0.1.71",
+  "version": "0.1.8",
   "description": "A button with a spinner that is triggered by a boolean",
   "main": "./dist/FancyButton.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && babel src/FancyButton.jsx --out-file dist/FancyButton.js && node ./scripts/build-dist",
+    "build": "rm -rf dist && mkdir -p dist && babel src/FancyButton.jsx --out-file dist/FancyButton.js && babel src/Spinner.jsx --out-file dist/Spinner.js && node ./scripts/build-dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
