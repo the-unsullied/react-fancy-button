@@ -11,7 +11,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import classnames from 'classnames';
-// import Spinner from './Spinner.jsx!';
+import Spinner from './Spinner.jsx!';
 
 export default React.createClass({
   getDefaultProps: function() {
@@ -51,13 +51,11 @@ export default React.createClass({
       disabled={this.props.disabled}
       onClick={this.props.onClick}>
       {this.props.trigger ? <div className="padding">
-        spinn spinn spinnn
+        <Spinner opts={opts} />
       </div> : <span>
         {this.props.label}
       </span>}
     </button>
   }
 
-
 });
-// <Spinner opts={opts} />
