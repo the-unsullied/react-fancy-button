@@ -2,12 +2,15 @@
 
 React component button with spinner.
 
-*classes* {String}  string of classes on button element
 
-*type* {String} type of button
+## Params
 
-*label* {String} content in button
+**classes** {String}  string of classes on button element
 
-*trigger* {Boolean} hides/shows spinner
+**type** {String} type of button
 
-*onClick* {String} action on click
+**label** {String} content in button
+
+**trigger** {Boolean} hides/shows spinner
+
+**onClick** {String} action on click
