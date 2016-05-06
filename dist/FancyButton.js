@@ -8,10 +8,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -22,15 +18,6 @@ var _Spinner2 = _interopRequireDefault(_Spinner);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
-Component that acts as a button with spinner
-@class Fancy Button Component
-@param {String} classes string of classes on button element
-@param {String} type type of button
-@param {String} label content in button
-@param {Boolean} trigger hides/shows spinner
-@param {String} onClick action on click
-*/
 exports.default = _react2.default.createClass({
   getDefaultProps: function getDefaultProps() {
     return {
@@ -71,7 +58,7 @@ exports.default = _react2.default.createClass({
         onClick: this.props.onClick },
       this.props.trigger ? _react2.default.createElement(
         'div',
-        { className: 'padding' },
+        { className: 'fancy-button-padding' },
         _react2.default.createElement(_Spinner2.default, { opts: opts })
       ) : _react2.default.createElement(
         'span',
@@ -80,5 +67,14 @@ exports.default = _react2.default.createClass({
       )
     );
   }
-});
+}); /**
+    Component that acts as a button with spinner
+    @class Fancy Button Component
+    @param {String} classes string of classes on button element
+    @param {String} type type of button
+    @param {String} label content in button
+    @param {Boolean} trigger hides/shows spinner
+    @param {String} onClick action on click
+    */
+
 module.exports = exports['default'];
