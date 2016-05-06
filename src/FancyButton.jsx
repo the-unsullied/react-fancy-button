@@ -8,7 +8,6 @@ Component that acts as a button with spinner
 @param {String} onClick action on click
 */
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import classnames from 'classnames';
 import Spinner from './Spinner';
@@ -50,7 +49,7 @@ export default React.createClass({
       className={classnames("fancy-button", this.props.classes)}
       disabled={this.props.disabled}
       onClick={this.props.onClick}>
-      {this.props.trigger ? <div className="padding">
+      {this.props.trigger ? <div className="fancy-button-padding">
         <Spinner opts={opts} />
       </div> : <span>
         {this.props.label}

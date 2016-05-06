@@ -36,7 +36,7 @@ export default React.createClass({
   },
 
   render() {
-    return <div className='spinner relative'>
+    return <div className='spinner fancy-button-relative'>
       <div ref="spinnerAnimation" className="spinner__animation"></div>
     </div>
   }
