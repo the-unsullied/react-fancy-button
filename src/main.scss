@@ -1,5 +1,7 @@
+$fancyButtonPadding: 10px !default;
+
 .fancy-button-padding {
-  padding: 10px;
+  padding: $fancyButtonPadding;
 }
 
 .fancy-button-relative {
