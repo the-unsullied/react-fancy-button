@@ -1,12 +1,12 @@
 /**
-Component that acts as a button with spinner
-@class Fancy Button Component
-@param {String} classes string of classes on button element
-@param {String} type type of button
-@param {String} label content in button
-@param {Boolean} trigger hides/shows spinner
-@param {String} onClick action on click
-*/
+ Component that acts as a button with spinner
+ @class Fancy Button Component
+ @param {String} classes string of classes on button element
+ @param {String} type type of button
+ @param {String} label content in button
+ @param {Boolean} trigger hides/shows spinner
+ @param {String} onClick action on click
+ */
 import React from 'react';
 
 import classnames from 'classnames';
@@ -39,16 +39,22 @@ export default React.createClass({
     }
   },
 
+  onDisabledClick() {
+    const { onDisabledClick } = this.props;
+    onDisabledClick && onDisabledClick();
+  },
+
   render() {
     const opts = {
       color: '#fff'
     }
 
     return <button ref="fancyButton"
-      type={this.props.type}
-      className={classnames("fancy-button", this.props.classes)}
-      disabled={this.props.disabled}
-      onClick={this.props.onClick}>
+                   type={this.props.type}
+                   className={classnames("fancy-button", this.props.classes)}
+                   disabled={this.props.disabled}
+                   onClick={this.props.onClick}>
+      {this.props.disabled ? <div className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null}
       {this.props.trigger ? <div className="fancy-button-padding">
         <Spinner opts={opts} />
       </div> : <span>
