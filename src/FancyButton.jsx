@@ -55,7 +55,7 @@ export default React.createClass({
       className={classnames("fancy-button", classes)}
       disabled={disabled}
       onClick={onClick}>
-      {disabled ? <div className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null}
+      { disabled ? <div className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null }
       { trigger ? <Spinner opts={opts} /> : null }
       <span className={classnames({'fancy-button__label-transparent': trigger})}>
         {label}
