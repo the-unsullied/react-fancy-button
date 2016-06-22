@@ -39,22 +39,27 @@ export default React.createClass({
     }
   },
 
+  onDisabledClick() {
+    const { onDisabledClick } = this.props;
+    onDisabledClick && onDisabledClick();
+  },
+
   render() {
+    const { type, trigger, disabled, onClick, classes, label } = this.props;
     const opts = {
       color: '#fff'
     }
 
     return <button ref="fancyButton"
-      type={this.props.type}
-      className={classnames("fancy-button", this.props.classes)}
-      disabled={this.props.disabled}
-      onClick={this.props.onClick}>
-      {this.props.trigger ? <div className="fancy-button-padding">
-        <Spinner opts={opts} />
-      </div> : <span>
-        {this.props.label}
-      </span>}
+      type={type}
+      className={classnames("fancy-button", classes)}
+      disabled={disabled}
+      onClick={onClick}>
+      {disabled ? <div className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null}
+      { trigger ? <Spinner opts={opts} /> : null }
+      <span className={classnames({'fancy-button__label-transparent': trigger})}>
+        {label}
+      </span>
     </button>
   }
-
 });

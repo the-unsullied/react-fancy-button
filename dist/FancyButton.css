@@ -1,5 +1,13 @@
-.fancy-button-padding {
-  padding: 10px; }
-
-.fancy-button-relative {
+.fancy-button {
   position: relative; }
+
+.fancy-button__disabled {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
+
+.fancy-button__label-transparent {
+  color: transparent; }
