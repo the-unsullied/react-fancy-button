@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "rm -rf dist && mkdir -p dist && babel src/FancyButton.jsx --out-file dist/FancyButton.js && babel src/Spinner.jsx --out-file dist/Spinner.js && node ./scripts/build-dist && cp src/main.scss dist/FancyButton.scss",
-    "test": "./node_modules/karma/bin/karma start"
+    "test": "npm run build; ./node_modules/karma/bin/karma start"
   },
   "keywords": [
     "React",
@@ -28,14 +28,11 @@
     "babel-plugin-transform-react-jsx": "^6.7.4",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "classnames": "^2.2.3",
     "karma": "^0.13.22",
-    "karma-babel-preprocessor": "^6.0.1",
     "karma-browserify": "^5.0.5",
     "karma-chai-sinon": "^0.1.5",
     "karma-chrome-launcher": "^0.2.2",

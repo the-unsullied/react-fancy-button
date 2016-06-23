@@ -20,11 +20,6 @@ module.exports = function(config) {
     ],
 
 
-    // list of files to exclude
-    exclude: [
-    ],
-
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
@@ -40,13 +35,6 @@ module.exports = function(config) {
         });
       }
     },
-
-    // babelPreprocessor: {
-    //   options: {
-    //     presets: ['stage-0', 'es2015', 'react']
-    //   }
-    // },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -68,17 +56,17 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: config.debug,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: [config.debug ? 'Chrome' : 'PhantomJS'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,//true,
+    singleRun: !config.debug,
 
     plugins: [
       'karma-mocha',

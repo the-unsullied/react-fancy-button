@@ -25,6 +25,7 @@ exports.default = _react2.default.createClass({
       classes: '',
       disabled: false,
       onClick: function onClick() {},
+      onDisabledClick: function onDisabledClick() {},
       trigger: false,
       label: 'Submit'
     };
@@ -35,6 +36,7 @@ exports.default = _react2.default.createClass({
     classes: _react2.default.PropTypes.string,
     disabled: _react2.default.PropTypes.bool,
     onClick: _react2.default.PropTypes.func,
+    onDisabledClick: _react2.default.PropTypes.func,
     trigger: _react2.default.PropTypes.bool,
     label: _react2.default.PropTypes.string
   },
@@ -69,7 +71,7 @@ exports.default = _react2.default.createClass({
         className: (0, _classnames2.default)("fancy-button", classes),
         disabled: disabled,
         onClick: onClick },
-      disabled ? _react2.default.createElement('div', { className: 'fancy-button__disabled', onClick: this.onDisabledClick }) : null,
+      disabled ? _react2.default.createElement('div', { ref: 'disabledButtonShim', className: 'fancy-button__disabled', onClick: this.onDisabledClick }) : null,
       trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts }) : null,
       _react2.default.createElement(
         'span',
