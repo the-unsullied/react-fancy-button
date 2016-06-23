@@ -2,6 +2,7 @@
 
 React component button with spinner.
 
+![Fancy Button Demo](https://github.com/the-unsullied/react-fancy-button/blob/demo/fancybuttondemo.gif)
 
 ## Params
 
