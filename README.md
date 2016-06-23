@@ -4,17 +4,6 @@ React component button with spinner.
 
 ![Fancy Button Demo](https://github.com/the-unsullied/react-fancy-button/blob/demo/fancybuttondemo.gif)
 
-## Params
-
-**classes** {String}  string of classes on button element
-
-**type** {String} type of button
-
-**label** {String} content in button
-
-**trigger** {Boolean} hides/shows spinner
-
-**onClick** {String} action on click
 
 ## Install
 ```
@@ -24,10 +13,11 @@ npm install react-fancy-button --save
 ## Usage
 ```
   import FancyButton from 'react-fancy-button';
-```
-```
+
   React.createClass({
-    ...
+
+
+
 
   save() {
     this.setState({isSavingNote: true});
@@ -47,6 +37,20 @@ npm install react-fancy-button --save
        label='Save'/>
   }
 ```
+
+
+## Params
+
+**classes** {String}  string of classes on button element
+
+**type** {String} type of button
+
+**label** {String} content in button
+
+**trigger** {Boolean} hides/shows spinner
+
+**onClick** {String} action on click
+
 
 ## Tests:
 To run the tests you can either run:
