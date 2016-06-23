@@ -14,3 +14,15 @@ React component button with spinner.
 **trigger** {Boolean} hides/shows spinner
 
 **onClick** {String} action on click
+
+## Tests:
+To run the tests you can either run:
+```
+  npm test
+```
+
+OR
+
+```
+  npm test -- --debug=true // for debug mode in chrome
+```
