@@ -19,6 +19,7 @@ export default React.createClass({
       classes: '',
       disabled: false,
       onClick: () => {},
+      onDisabledClick: () => {},
       trigger: false,
       label: 'Submit'
     };
@@ -29,6 +30,7 @@ export default React.createClass({
     classes: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
+    onDisabledClick: React.PropTypes.func,
     trigger: React.PropTypes.bool,
     label: React.PropTypes.string
   },
@@ -55,7 +57,7 @@ export default React.createClass({
       className={classnames("fancy-button", classes)}
       disabled={disabled}
       onClick={onClick}>
-      { disabled ? <div className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null }
+      { disabled ? <div ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null }
       { trigger ? <Spinner opts={opts} /> : null }
       <span className={classnames({'fancy-button__label-transparent': trigger})}>
         {label}
