@@ -15,6 +15,38 @@ React component button with spinner.
 
 **onClick** {String} action on click
 
+## Install
+```
+npm install react-fancy-button --save
+```
+
+## Usage
+```
+  import FancyButton from 'react-fancy-button';
+```
+```
+  React.createClass({
+    ...
+
+  save() {
+    this.setState({isSavingNote: true});
+    console.log('saving!')
+  },
+
+  isFormValid() {
+    return someValidations();
+  },
+
+  render() {
+    <FancyButton classes='btn btn--small btn-primary btn--full'
+       onClick={this.save}
+       disabled={isFormValid()}
+       trigger={this.state.isSavingNote}
+       onDisabledClick={ () => this.setState({ showErrors: true }) }
+       label='Save'/>
+  }
+```
+
 ## Tests:
 To run the tests you can either run:
 ```
