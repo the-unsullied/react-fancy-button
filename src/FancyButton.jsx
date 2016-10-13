@@ -3,7 +3,7 @@ Component that acts as a button with spinner
 @class Fancy Button Component
 @param {String} classes string of classes on button element
 @param {String} type type of button
-@param {String} label content in button
+@param {Any} label content in button
 @param {Boolean} trigger hides/shows spinner
 @param {String} onClick action on click
 */
@@ -32,7 +32,7 @@ export default React.createClass({
     onClick: React.PropTypes.func,
     onDisabledClick: React.PropTypes.func,
     trigger: React.PropTypes.bool,
-    label: React.PropTypes.string
+    label: React.PropTypes.any
   },
 
   getInitialState() {

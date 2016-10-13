@@ -38,7 +38,7 @@ exports.default = _react2.default.createClass({
     onClick: _react2.default.PropTypes.func,
     onDisabledClick: _react2.default.PropTypes.func,
     trigger: _react2.default.PropTypes.bool,
-    label: _react2.default.PropTypes.string
+    label: _react2.default.PropTypes.any
   },
 
   getInitialState: function getInitialState() {
@@ -85,7 +85,7 @@ exports.default = _react2.default.createClass({
     @class Fancy Button Component
     @param {String} classes string of classes on button element
     @param {String} type type of button
-    @param {String} label content in button
+    @param {Any} label content in button
     @param {Boolean} trigger hides/shows spinner
     @param {String} onClick action on click
     */
