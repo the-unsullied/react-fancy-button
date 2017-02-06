@@ -1,6 +1,6 @@
 {
   "name": "react-fancy-button",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "A button with a spinner that is triggered by a boolean",
   "main": "./dist/FancyButton.js",
   "repository": {
@@ -41,11 +41,12 @@
     "mocha": "^2.5.3",
     "node-sass": "^3.4.2",
     "phantomjs": "^1.9.19",
-    "react": "^0.14.8",
+    "react": "^15.4.2",
     "react-addons-test-utils": "^15.1.0",
-    "react-dom": "^0.14.8",
+    "react-dom": "^15.4.2",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "webpack": "^2.2.1"
   }
 }
