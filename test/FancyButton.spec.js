@@ -46,8 +46,9 @@ context('FancyButton', () => {
     it('should have disabled attr when disabled and have disabled button shim', () => {
       const component = createComponent({ disabled: true });
       const button = findDOMNode(component.refs.fancyButton);
+      const wrapper = findDOMNode(component.refs.fancyButtonWrapper);
       expect(button.hasAttribute('disabled')).to.be.true;
-      expect(button.querySelector('.fancy-button__disabled')).to.exist;
+      expect(wrapper.querySelector('.fancy-button__disabled')).to.exist;
     });
 
     it('should call onDisabledClick when disabled and user clicks', () => {

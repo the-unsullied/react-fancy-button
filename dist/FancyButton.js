@@ -52,31 +52,35 @@ exports.default = _react2.default.createClass({
     onDisabledClick && onDisabledClick();
   },
   render: function render() {
-    var _props = this.props;
-    var type = _props.type;
-    var trigger = _props.trigger;
-    var disabled = _props.disabled;
-    var onClick = _props.onClick;
-    var classes = _props.classes;
-    var label = _props.label;
+    var _props = this.props,
+        type = _props.type,
+        trigger = _props.trigger,
+        disabled = _props.disabled,
+        onClick = _props.onClick,
+        classes = _props.classes,
+        label = _props.label;
 
     var opts = {
       color: '#fff'
     };
 
     return _react2.default.createElement(
-      'button',
-      { ref: 'fancyButton',
-        type: type,
-        className: (0, _classnames2.default)("fancy-button", classes),
-        disabled: disabled,
-        onClick: onClick },
+      'div',
+      { ref: 'fancyButtonWrapper', className: 'fancy-button-wrapper' },
       disabled ? _react2.default.createElement('div', { ref: 'disabledButtonShim', className: 'fancy-button__disabled', onClick: this.onDisabledClick }) : null,
-      trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts }) : null,
       _react2.default.createElement(
-        'span',
-        { className: (0, _classnames2.default)({ 'fancy-button__label-transparent': trigger }) },
-        label
+        'button',
+        { ref: 'fancyButton',
+          type: type,
+          className: (0, _classnames2.default)("fancy-button", classes),
+          disabled: disabled,
+          onClick: onClick },
+        trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts }) : null,
+        _react2.default.createElement(
+          'span',
+          { className: (0, _classnames2.default)({ 'fancy-button__label-transparent': trigger }) },
+          label
+        )
       )
     );
   }

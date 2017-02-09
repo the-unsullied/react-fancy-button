@@ -1,4 +1,4 @@
-.fancy-button {
+.fancy-button-wrapper {
   position: relative; }
 
 .fancy-button__disabled {
@@ -7,7 +7,8 @@
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0; }
+  left: 0;
+  cursor: pointer; }
 
 .fancy-button__label-transparent {
   color: transparent; }

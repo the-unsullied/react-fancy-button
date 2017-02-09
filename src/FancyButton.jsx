@@ -52,16 +52,18 @@ export default React.createClass({
       color: '#fff'
     }
 
-    return <button ref="fancyButton"
-      type={type}
-      className={classnames("fancy-button", classes)}
-      disabled={disabled}
-      onClick={onClick}>
+    return <div ref="fancyButtonWrapper" className="fancy-button-wrapper">
       { disabled ? <div ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null }
-      { trigger ? <Spinner opts={opts} /> : null }
-      <span className={classnames({'fancy-button__label-transparent': trigger})}>
-        {label}
-      </span>
-    </button>
+      <button ref="fancyButton"
+        type={type}
+        className={classnames("fancy-button", classes)}
+        disabled={disabled}
+        onClick={onClick}>
+        { trigger ? <Spinner opts={opts} /> : null }
+        <span className={classnames({'fancy-button__label-transparent': trigger})}>
+          {label}
+        </span>
+      </button>
+    </div>
   }
 });
