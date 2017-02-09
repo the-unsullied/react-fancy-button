@@ -52,13 +52,13 @@ exports.default = _react2.default.createClass({
     onDisabledClick && onDisabledClick();
   },
   render: function render() {
-    var _props = this.props,
-        type = _props.type,
-        trigger = _props.trigger,
-        disabled = _props.disabled,
-        onClick = _props.onClick,
-        classes = _props.classes,
-        label = _props.label;
+    var _props = this.props;
+    var type = _props.type;
+    var trigger = _props.trigger;
+    var disabled = _props.disabled;
+    var onClick = _props.onClick;
+    var classes = _props.classes;
+    var label = _props.label;
 
     var opts = {
       color: '#fff'
