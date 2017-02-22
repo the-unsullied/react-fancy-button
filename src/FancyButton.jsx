@@ -4,8 +4,12 @@ Component that acts as a button with spinner
 @param {String} classes string of classes on button element
 @param {String} type type of button
 @param {Any} label content in button
+@param {Function} onDisabledClick action on click of disabled button
 @param {Boolean} trigger hides/shows spinner
+@param {Boolean} disabled disables button
 @param {String} onClick action on click
+@param {Any|String} role aria role for button - defaults to 'button'
+@param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
 */
 import React from 'react';
 
@@ -32,7 +36,9 @@ export default React.createClass({
     onClick: React.PropTypes.func,
     onDisabledClick: React.PropTypes.func,
     trigger: React.PropTypes.bool,
-    label: React.PropTypes.any
+    label: React.PropTypes.any,
+    ariaLabel: React.PropTypes.any,
+    role: React.PropTypes.any
   },
 
   getInitialState() {
@@ -47,7 +53,14 @@ export default React.createClass({
   },
 
   render() {
-    const { type, trigger, disabled, onClick, classes, label } = this.props;
+    const { type,
+      trigger,
+      disabled,
+      onClick,
+      classes,
+      ariaLabel,
+      role,
+      label } = this.props;
     const opts = {
       color: '#fff'
     }
@@ -56,6 +69,8 @@ export default React.createClass({
       { disabled ? <div ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null }
       <button ref="fancyButton"
         type={type}
+        aria-label={ariaLabel || label}
+        role={role || "button"}
         className={classnames("fancy-button", classes)}
         disabled={disabled}
         onClick={onClick}>

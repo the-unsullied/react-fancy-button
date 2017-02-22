@@ -16,9 +16,6 @@ npm install react-fancy-button --save
 
   React.createClass({
 
-
-
-
   save() {
     this.setState({isSavingNote: true});
     console.log('saving!')
@@ -41,16 +38,23 @@ npm install react-fancy-button --save
 
 ## Params
 
-**classes** {String}  string of classes on button element
+**classes** {String}   string of classes on button element
 
-**type** {String} type of button
+**type** {String}   type of button
 
-**label** {String} content in button
+**label** {Any}  content in button
 
-**trigger** {Boolean} hides/shows spinner
+**onDisabledClick** {Function}    action on click of disabled button
 
-**onClick** {String} action on click
+**trigger** {Boolean  hides/shows spinner
 
+**disabled** {Boolean}  disables button
+
+**onClick** {String}   action on click
+
+**role** {String}   aria role for button - defaults to 'button'
+
+**ariaLabel** {String}   aria-label for button - defaults to what prop.label is set to
 
 ## Tests:
 To run the tests you can either run:

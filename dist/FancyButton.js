@@ -58,6 +58,8 @@ exports.default = _react2.default.createClass({
     var disabled = _props.disabled;
     var onClick = _props.onClick;
     var classes = _props.classes;
+    var ariaLabel = _props.ariaLabel;
+    var role = _props.role;
     var label = _props.label;
 
     var opts = {
@@ -72,6 +74,8 @@ exports.default = _react2.default.createClass({
         'button',
         { ref: 'fancyButton',
           type: type,
+          'aria-label': ariaLabel || label,
+          role: role || "button",
           className: (0, _classnames2.default)("fancy-button", classes),
           disabled: disabled,
           onClick: onClick },
@@ -90,8 +94,12 @@ exports.default = _react2.default.createClass({
     @param {String} classes string of classes on button element
     @param {String} type type of button
     @param {Any} label content in button
+    @param {Function} onDisabledClick action on click of disabled button
     @param {Boolean} trigger hides/shows spinner
+    @param {Boolean} disabled disables button
     @param {String} onClick action on click
+    @param {String} role aria role for button - defaults to 'button'
+    @param {String} ariaLabel aria-label for button - defaults to what prop.label is set to
     */
 
 module.exports = exports['default'];
