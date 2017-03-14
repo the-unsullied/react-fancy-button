@@ -9,6 +9,7 @@ Component that acts as a button with spinner
 @param {Boolean} disabled disables button
 @param {String} onClick action on click
 @param {Any|String} role aria role for button - defaults to 'button'
+@param {Any|String} tabIndex tabIndex for 'button'
 @param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
 */
 import React from 'react';
@@ -25,7 +26,8 @@ export default React.createClass({
       onClick: () => {},
       onDisabledClick: () => {},
       trigger: false,
-      label: 'Submit'
+      label: 'Submit',
+      tabIndex: ''
     };
   },
 
@@ -38,7 +40,8 @@ export default React.createClass({
     trigger: React.PropTypes.bool,
     label: React.PropTypes.any,
     ariaLabel: React.PropTypes.any,
-    role: React.PropTypes.any
+    role: React.PropTypes.any,
+    tabIndex: React.PropTypes.string
   },
 
   getInitialState() {
@@ -60,6 +63,7 @@ export default React.createClass({
       classes,
       ariaLabel,
       role,
+      tabIndex,
       label } = this.props;
     const opts = {
       color: '#fff'
@@ -69,6 +73,7 @@ export default React.createClass({
       { disabled ? <div ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null }
       <button ref="fancyButton"
         type={type}
+        tabIndex={tabIndex}
         aria-label={ariaLabel || label}
         role={role || "button"}
         className={classnames("fancy-button", classes)}

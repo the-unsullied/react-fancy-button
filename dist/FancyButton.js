@@ -27,7 +27,8 @@ exports.default = _react2.default.createClass({
       onClick: function onClick() {},
       onDisabledClick: function onDisabledClick() {},
       trigger: false,
-      label: 'Submit'
+      label: 'Submit',
+      tabIndex: ''
     };
   },
 
@@ -38,7 +39,10 @@ exports.default = _react2.default.createClass({
     onClick: _react2.default.PropTypes.func,
     onDisabledClick: _react2.default.PropTypes.func,
     trigger: _react2.default.PropTypes.bool,
-    label: _react2.default.PropTypes.any
+    label: _react2.default.PropTypes.any,
+    ariaLabel: _react2.default.PropTypes.any,
+    role: _react2.default.PropTypes.any,
+    tabIndex: _react2.default.PropTypes.string
   },
 
   getInitialState: function getInitialState() {
@@ -60,6 +64,7 @@ exports.default = _react2.default.createClass({
     var classes = _props.classes;
     var ariaLabel = _props.ariaLabel;
     var role = _props.role;
+    var tabIndex = _props.tabIndex;
     var label = _props.label;
 
     var opts = {
@@ -74,6 +79,7 @@ exports.default = _react2.default.createClass({
         'button',
         { ref: 'fancyButton',
           type: type,
+          tabIndex: tabIndex,
           'aria-label': ariaLabel || label,
           role: role || "button",
           className: (0, _classnames2.default)("fancy-button", classes),
@@ -98,8 +104,9 @@ exports.default = _react2.default.createClass({
     @param {Boolean} trigger hides/shows spinner
     @param {Boolean} disabled disables button
     @param {String} onClick action on click
-    @param {String} role aria role for button - defaults to 'button'
-    @param {String} ariaLabel aria-label for button - defaults to what prop.label is set to
+    @param {Any|String} role aria role for button - defaults to 'button'
+    @param {Any|String} tabIndex tabIndex for 'button'
+    @param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
     */
 
 module.exports = exports['default'];
