@@ -14,4 +14,5 @@
   color: transparent; }
 
 .fancy-button {
-  display: flex; }
+  display: flex;
+  justify-content: center; }
