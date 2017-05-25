@@ -28,7 +28,8 @@ exports.default = _react2.default.createClass({
       onDisabledClick: function onDisabledClick() {},
       trigger: false,
       label: 'Submit',
-      tabIndex: ''
+      tabIndex: '',
+      allowMultiClick: false
     };
   },
 
@@ -42,7 +43,8 @@ exports.default = _react2.default.createClass({
     label: _react2.default.PropTypes.any,
     ariaLabel: _react2.default.PropTypes.any,
     role: _react2.default.PropTypes.any,
-    tabIndex: _react2.default.PropTypes.string
+    tabIndex: _react2.default.PropTypes.string,
+    allowMultiClick: _react2.default.PropTypes.bool
   },
 
   getInitialState: function getInitialState() {
@@ -55,17 +57,27 @@ exports.default = _react2.default.createClass({
 
     onDisabledClick && onDisabledClick();
   },
+  handleClick: function handleClick() {
+    var _props = this.props,
+        trigger = _props.trigger,
+        onClick = _props.onClick,
+        allowMultiClick = _props.allowMultiClick;
+
+    if (trigger && !allowMultiClick) {
+      return;
+    }
+    onClick();
+  },
   render: function render() {
-    var _props = this.props;
-    var type = _props.type;
-    var trigger = _props.trigger;
-    var disabled = _props.disabled;
-    var onClick = _props.onClick;
-    var classes = _props.classes;
-    var ariaLabel = _props.ariaLabel;
-    var role = _props.role;
-    var tabIndex = _props.tabIndex;
-    var label = _props.label;
+    var _props2 = this.props,
+        type = _props2.type,
+        trigger = _props2.trigger,
+        disabled = _props2.disabled,
+        classes = _props2.classes,
+        ariaLabel = _props2.ariaLabel,
+        role = _props2.role,
+        tabIndex = _props2.tabIndex,
+        label = _props2.label;
 
     var opts = {
       color: '#fff'
@@ -84,7 +96,7 @@ exports.default = _react2.default.createClass({
           role: role || "button",
           className: (0, _classnames2.default)("fancy-button", classes),
           disabled: disabled,
-          onClick: onClick },
+          onClick: this.handleClick },
         trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts }) : null,
         _react2.default.createElement(
           'span',
@@ -101,12 +113,13 @@ exports.default = _react2.default.createClass({
     @param {String} type type of button
     @param {Any} label content in button
     @param {Function} onDisabledClick action on click of disabled button
-    @param {Boolean} trigger hides/shows spinner
+    @param {Boolean} trigger hides/shows spinner and disabled more subsequent clicks from happening unless allowMultiClick is true
     @param {Boolean} disabled disables button
     @param {String} onClick action on click
     @param {Any|String} role aria role for button - defaults to 'button'
     @param {Any|String} tabIndex tabIndex for 'button'
     @param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
+    @param {Boolean} allowMultiClick defaults to false. If true, it will allow onClick handler to be triggered even if the prop trigger is true
     */
 
 module.exports = exports['default'];

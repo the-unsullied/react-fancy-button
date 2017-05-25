@@ -50,7 +50,7 @@ exports.default = _react2.default.createClass({
   render: function render() {
     return _react2.default.createElement(
       'div',
-      { className: 'spinner fancy-button-relative' },
+      { className: 'spinner' },
       _react2.default.createElement('div', { ref: 'spinnerAnimation', className: 'spinner__animation' })
     );
   }

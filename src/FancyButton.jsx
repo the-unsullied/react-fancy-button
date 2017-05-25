@@ -5,12 +5,13 @@ Component that acts as a button with spinner
 @param {String} type type of button
 @param {Any} label content in button
 @param {Function} onDisabledClick action on click of disabled button
-@param {Boolean} trigger hides/shows spinner
+@param {Boolean} trigger hides/shows spinner and disabled more subsequent clicks from happening unless allowMultiClick is true
 @param {Boolean} disabled disables button
 @param {String} onClick action on click
 @param {Any|String} role aria role for button - defaults to 'button'
 @param {Any|String} tabIndex tabIndex for 'button'
 @param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
+@param {Boolean} allowMultiClick defaults to false. If true, it will allow onClick handler to be triggered even if the prop trigger is true
 */
 import React from 'react';
 
@@ -27,7 +28,8 @@ export default React.createClass({
       onDisabledClick: () => {},
       trigger: false,
       label: 'Submit',
-      tabIndex: ''
+      tabIndex: '',
+      allowMultiClick: false
     };
   },
 
@@ -41,7 +43,8 @@ export default React.createClass({
     label: React.PropTypes.any,
     ariaLabel: React.PropTypes.any,
     role: React.PropTypes.any,
-    tabIndex: React.PropTypes.string
+    tabIndex: React.PropTypes.string,
+    allowMultiClick: React.PropTypes.bool
   },
 
   getInitialState() {
@@ -55,11 +58,18 @@ export default React.createClass({
     onDisabledClick && onDisabledClick();
   },
 
+  handleClick() {
+    const { trigger, onClick, allowMultiClick } = this.props;
+    if(trigger && !allowMultiClick) {
+      return;
+    }
+    onClick();
+  },
+
   render() {
     const { type,
       trigger,
       disabled,
-      onClick,
       classes,
       ariaLabel,
       role,
@@ -78,7 +88,7 @@ export default React.createClass({
         role={role || "button"}
         className={classnames("fancy-button", classes)}
         disabled={disabled}
-        onClick={onClick}>
+        onClick={this.handleClick}>
         { trigger ? <Spinner opts={opts} /> : null }
         <span className={classnames({'fancy-button__label-transparent': trigger})}>
           {label}

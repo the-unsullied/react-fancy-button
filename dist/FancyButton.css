@@ -12,3 +12,6 @@
 
 .fancy-button__label-transparent {
   color: transparent; }
+
+.fancy-button {
+  display: flex; }

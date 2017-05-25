@@ -44,9 +44,9 @@ npm install react-fancy-button --save
 
 **label** {Any}  content in button
 
-**onDisabledClick** {Function}    action on click of disabled button
+**onDisabledClick**    {Function} action on click of disabled button
 
-**trigger** {Boolean  hides/shows spinner
+**trigger**    {Boolean hides/shows spinner and disabled more subsequent clicks from happening unless allowMultiClick is true
 
 **disabled** {Boolean}  disables button
 
@@ -55,6 +55,8 @@ npm install react-fancy-button --save
 **role** {String}   aria role for button - defaults to 'button'
 
 **ariaLabel** {String}   aria-label for button - defaults to what prop.label is set to
+
+**allowMultiClick** {Boolean}   defaults to false. If true, it will allow onClick handler to be triggered even if the prop trigger is true
 
 ## Tests:
 To run the tests you can either run:
