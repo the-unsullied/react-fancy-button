@@ -29,6 +29,7 @@ exports.default = _react2.default.createClass({
       trigger: false,
       label: 'Submit',
       tabIndex: '',
+      autoFocus: false,
       allowMultiClick: false
     };
   },
@@ -44,6 +45,7 @@ exports.default = _react2.default.createClass({
     ariaLabel: _react2.default.PropTypes.any,
     role: _react2.default.PropTypes.any,
     tabIndex: _react2.default.PropTypes.string,
+    autoFocus: _react2.default.PropTypes.bool,
     allowMultiClick: _react2.default.PropTypes.bool
   },
 
@@ -57,7 +59,7 @@ exports.default = _react2.default.createClass({
 
     onDisabledClick && onDisabledClick();
   },
-  handleClick: function handleClick() {
+  handleClick: function handleClick(e) {
     var _props = this.props,
         trigger = _props.trigger,
         onClick = _props.onClick,
@@ -66,7 +68,7 @@ exports.default = _react2.default.createClass({
     if (trigger && !allowMultiClick) {
       return;
     }
-    onClick();
+    onClick(e);
   },
   render: function render() {
     var _props2 = this.props,
@@ -77,6 +79,7 @@ exports.default = _react2.default.createClass({
         ariaLabel = _props2.ariaLabel,
         role = _props2.role,
         tabIndex = _props2.tabIndex,
+        autoFocus = _props2.autoFocus,
         label = _props2.label;
 
     var opts = {
@@ -94,6 +97,7 @@ exports.default = _react2.default.createClass({
           tabIndex: tabIndex,
           'aria-label': ariaLabel || label,
           role: role || "button",
+          autoFocus: autoFocus,
           className: (0, _classnames2.default)("fancy-button", classes),
           disabled: disabled,
           onClick: this.handleClick },
@@ -119,6 +123,7 @@ exports.default = _react2.default.createClass({
     @param {Any|String} role aria role for button - defaults to 'button'
     @param {Any|String} tabIndex tabIndex for 'button'
     @param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
+    @param {Boolean} autoFocus autofocuses on button on render
     @param {Boolean} allowMultiClick defaults to false. If true, it will allow onClick handler to be triggered even if the prop trigger is true
     */
 

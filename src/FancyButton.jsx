@@ -11,6 +11,7 @@ Component that acts as a button with spinner
 @param {Any|String} role aria role for button - defaults to 'button'
 @param {Any|String} tabIndex tabIndex for 'button'
 @param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
+@param {Boolean} autoFocus autofocuses on button on render
 @param {Boolean} allowMultiClick defaults to false. If true, it will allow onClick handler to be triggered even if the prop trigger is true
 */
 import React from 'react';
@@ -29,6 +30,7 @@ export default React.createClass({
       trigger: false,
       label: 'Submit',
       tabIndex: '',
+      autoFocus: false,
       allowMultiClick: false
     };
   },
@@ -44,6 +46,7 @@ export default React.createClass({
     ariaLabel: React.PropTypes.any,
     role: React.PropTypes.any,
     tabIndex: React.PropTypes.string,
+    autoFocus: React.PropTypes.bool,
     allowMultiClick: React.PropTypes.bool
   },
 
@@ -58,12 +61,12 @@ export default React.createClass({
     onDisabledClick && onDisabledClick();
   },
 
-  handleClick() {
+  handleClick(e) {
     const { trigger, onClick, allowMultiClick } = this.props;
     if(trigger && !allowMultiClick) {
       return;
     }
-    onClick();
+    onClick(e);
   },
 
   render() {
@@ -74,6 +77,7 @@ export default React.createClass({
       ariaLabel,
       role,
       tabIndex,
+      autoFocus,
       label } = this.props;
     const opts = {
       color: '#fff'
@@ -86,6 +90,7 @@ export default React.createClass({
         tabIndex={tabIndex}
         aria-label={ariaLabel || label}
         role={role || "button"}
+        autoFocus={autoFocus}
         className={classnames("fancy-button", classes)}
         disabled={disabled}
         onClick={this.handleClick}>
