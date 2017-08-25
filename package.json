@@ -1,6 +1,6 @@
 {
   "name": "react-fancy-button",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "description": "A button with a spinner that is triggered by a boolean",
   "main": "./dist/FancyButton.js",
   "repository": {
@@ -39,7 +39,7 @@
     "karma-mocha": "^1.0.1",
     "karma-phantomjs-launcher": "^0.2.3",
     "mocha": "^2.5.3",
-    "node-sass": "^3.4.2",
+    "node-sass": "^3.8.0",
     "phantomjs": "^1.9.19",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.1.0",

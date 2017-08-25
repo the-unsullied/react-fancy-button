@@ -31,7 +31,8 @@ export default React.createClass({
       label: 'Submit',
       tabIndex: '',
       autoFocus: false,
-      allowMultiClick: false
+      allowMultiClick: false,
+      spinnerZindex: 2e9
     };
   },
 
@@ -47,7 +48,8 @@ export default React.createClass({
     role: React.PropTypes.any,
     tabIndex: React.PropTypes.string,
     autoFocus: React.PropTypes.bool,
-    allowMultiClick: React.PropTypes.bool
+    allowMultiClick: React.PropTypes.bool,
+    spinnerZindex: React.PropTypes.number
   },
 
   getInitialState() {
@@ -78,6 +80,7 @@ export default React.createClass({
       role,
       tabIndex,
       autoFocus,
+      spinnerZindex,
       label } = this.props;
     const opts = {
       color: '#fff'
@@ -94,7 +97,7 @@ export default React.createClass({
         className={classnames("fancy-button", classes)}
         disabled={disabled}
         onClick={this.handleClick}>
-        { trigger ? <Spinner opts={opts} /> : null }
+        { trigger ? <Spinner opts={opts} spinnerZindex={spinnerZindex}/> : null }
         <span className={classnames({'fancy-button__label-transparent': trigger})}>
           {label}
         </span>

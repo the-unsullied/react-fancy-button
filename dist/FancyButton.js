@@ -30,7 +30,8 @@ exports.default = _react2.default.createClass({
       label: 'Submit',
       tabIndex: '',
       autoFocus: false,
-      allowMultiClick: false
+      allowMultiClick: false,
+      spinnerZindex: 2e9
     };
   },
 
@@ -46,7 +47,8 @@ exports.default = _react2.default.createClass({
     role: _react2.default.PropTypes.any,
     tabIndex: _react2.default.PropTypes.string,
     autoFocus: _react2.default.PropTypes.bool,
-    allowMultiClick: _react2.default.PropTypes.bool
+    allowMultiClick: _react2.default.PropTypes.bool,
+    spinnerZindex: _react2.default.PropTypes.number
   },
 
   getInitialState: function getInitialState() {
@@ -80,6 +82,7 @@ exports.default = _react2.default.createClass({
         role = _props2.role,
         tabIndex = _props2.tabIndex,
         autoFocus = _props2.autoFocus,
+        spinnerZindex = _props2.spinnerZindex,
         label = _props2.label;
 
     var opts = {
@@ -101,7 +104,7 @@ exports.default = _react2.default.createClass({
           className: (0, _classnames2.default)("fancy-button", classes),
           disabled: disabled,
           onClick: this.handleClick },
-        trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts }) : null,
+        trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts, spinnerZindex: spinnerZindex }) : null,
         _react2.default.createElement(
           'span',
           { className: (0, _classnames2.default)({ 'fancy-button__label-transparent': trigger }) },

@@ -5,8 +5,13 @@ import ReactDOM from 'react-dom';
 import Spinner from './../assets/spin.js-master/spin.min';
 
 export default React.createClass({
+  getDefaultProps() {
+    zIndex: 2e9              // The z-index (defaults to 2000000000)
+  },
 
   componentDidMount() {
+    const { zIndex } = this.props;
+
     const opts = {
         lines: 13            // The number of lines to draw
       , length: 3            // The length of each line
@@ -21,7 +26,7 @@ export default React.createClass({
       , speed: 0.9           // Rounds per second
       , trail: 22            // Afterglow percentage
       , fps: 20              // Frames per second when using setTimeout() as a fallback for CSS
-      , zIndex: 2e9          // The z-index (defaults to 2000000000)
+      , zIndex
       , className: 'spinner' // The CSS class to assign to the spinner
       , top: '50%'           // Top position relative to parent
       , left: '50%'          // Left position relative to parent

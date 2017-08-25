@@ -19,7 +19,13 @@ var _spin2 = _interopRequireDefault(_spin);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _react2.default.createClass({
+  getDefaultProps: function getDefaultProps() {
+    zIndex: 2e9; // The z-index (defaults to 2000000000)
+  },
   componentDidMount: function componentDidMount() {
+    var zIndex = this.props.zIndex;
+
+
     var opts = {
       lines: 13 // The number of lines to draw
       , length: 3 // The length of each line
@@ -34,8 +40,8 @@ exports.default = _react2.default.createClass({
       , speed: 0.9 // Rounds per second
       , trail: 22 // Afterglow percentage
       , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
-      , zIndex: 2e9 // The z-index (defaults to 2000000000)
-      , className: 'spinner' // The CSS class to assign to the spinner
+      , zIndex: zIndex,
+      className: 'spinner' // The CSS class to assign to the spinner
       , top: '50%' // Top position relative to parent
       , left: '50%' // Left position relative to parent
       , shadow: false // Whether to render a shadow
