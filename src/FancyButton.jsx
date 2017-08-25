@@ -83,7 +83,8 @@ export default React.createClass({
       spinnerZindex,
       label } = this.props;
     const opts = {
-      color: '#fff'
+      color: '#fff',
+      zIndex: spinnerZindex
     }
 
     return <div ref="fancyButtonWrapper" className="fancy-button-wrapper">
@@ -97,7 +98,7 @@ export default React.createClass({
         className={classnames("fancy-button", classes)}
         disabled={disabled}
         onClick={this.handleClick}>
-        { trigger ? <Spinner opts={opts} spinnerZindex={spinnerZindex}/> : null }
+        { trigger ? <Spinner opts={opts} /> : null }
         <span className={classnames({'fancy-button__label-transparent': trigger})}>
           {label}
         </span>

@@ -86,7 +86,8 @@ exports.default = _react2.default.createClass({
         label = _props2.label;
 
     var opts = {
-      color: '#fff'
+      color: '#fff',
+      zIndex: spinnerZindex
     };
 
     return _react2.default.createElement(
@@ -104,7 +105,7 @@ exports.default = _react2.default.createClass({
           className: (0, _classnames2.default)("fancy-button", classes),
           disabled: disabled,
           onClick: this.handleClick },
-        trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts, spinnerZindex: spinnerZindex }) : null,
+        trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts }) : null,
         _react2.default.createElement(
           'span',
           { className: (0, _classnames2.default)({ 'fancy-button__label-transparent': trigger }) },
