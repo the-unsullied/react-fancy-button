@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Spinner from './../assets/spin.js-master/spin.min';
 
-export default React.createClass({
+export default class extends React.Component {
   componentDidMount() {
     const opts = {
         lines: 13            // The number of lines to draw
@@ -27,17 +27,16 @@ export default React.createClass({
       , shadow: false        // Whether to render a shadow
       , hwaccel: false       // Whether to use hardware acceleration
       , position: 'absolute' // Element positioning
-    }
+    };
 
     Object.assign(opts, this.props.opts);
 
     new Spinner(opts).spin(ReactDOM.findDOMNode(this.refs.spinnerAnimation));
-  },
+  }
 
   render() {
     return <div className='spinner'>
-      <div ref="spinnerAnimation" className="spinner__animation"></div>
+      <div ref="spinnerAnimation" className="spinner__animation" />
     </div>
   }
-
-});
+}
