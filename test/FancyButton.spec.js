@@ -1,6 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import { renderIntoDocument, findRenderedComponentWithType, Simulate } from 'react-addons-test-utils';
+import ReactTestUtils from 'react-dom/test-utils';
 import FancyButton from './../dist/FancyButton';
 
 const noop = () => {};
@@ -16,13 +16,13 @@ const createComponent = function(props = {}) {
     label: 'Submit'
   }, props);
 
-  const Parent = React.createFactory(React.createClass({
-    getInitialState() { return state; },
+  const Parent = React.createFactory(class extends React.Component {
+    state = state;
     render() { return <FancyButton {...this.state} /> }
-  }));
+  });
 
-  const parentComponent = renderIntoDocument(Parent());
-  const component = findRenderedComponentWithType(parentComponent, FancyButton);
+  const parentComponent = ReactTestUtils.renderIntoDocument(Parent());
+  const component = ReactTestUtils.findRenderedComponentWithType(parentComponent, FancyButton);
 
   return component;
 };
@@ -39,7 +39,7 @@ context('FancyButton', () => {
     it('should call onClick handler when clicked', () => {
       const onClick = sinon.spy();
       const component = createComponent({ onClick });
-      Simulate.click(component.refs.fancyButton);
+      ReactTestUtils.Simulate.click(component.refs.fancyButton);
       expect(onClick.calledOnce).to.be.true;
     });
 
@@ -55,7 +55,7 @@ context('FancyButton', () => {
       const onDisabledClick = sinon.spy();
       const component = createComponent({ disabled: true, onDisabledClick });
       const button = component.refs.disabledButtonShim;
-      Simulate.click(button);
+      ReactTestUtils.Simulate.click(button);
       expect(onDisabledClick.calledOnce).to.be.true;
     });
   });

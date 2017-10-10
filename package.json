@@ -1,6 +1,6 @@
 {
   "name": "react-fancy-button",
-  "version": "0.2.21",
+  "version": "1.0.0",
   "description": "A button with a spinner that is triggered by a boolean",
   "main": "./dist/FancyButton.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/the-unsullied/react-fancy-button"
   },
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && babel src/FancyButton.jsx --out-file dist/FancyButton.js && babel src/Spinner.jsx --out-file dist/Spinner.js && node ./scripts/build-dist && cp src/main.scss dist/FancyButton.scss",
+    "build": "rm -rf dist && mkdir -p dist && babel src/FancyButton.js --out-file dist/FancyButton.js && babel src/Spinner.js --out-file dist/Spinner.js && node ./scripts/build-dist && cp src/main.scss dist/FancyButton.scss",
     "test": "npm run build; ./node_modules/karma/bin/karma start"
   },
   "keywords": [
@@ -28,22 +28,22 @@
     "babel-plugin-transform-react-jsx": "^6.7.4",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "classnames": "^2.2.3",
-    "karma": "^0.13.22",
-    "karma-browserify": "^5.0.5",
+    "create-react-class": "^15.6.2",
+    "karma": "^1.7.1",
+    "karma-browserify": "^5.1.1",
     "karma-chai-sinon": "^0.1.5",
     "karma-chrome-launcher": "^0.2.2",
-    "karma-mocha": "^1.0.1",
-    "karma-phantomjs-launcher": "^0.2.3",
-    "mocha": "^2.5.3",
+    "karma-mocha": "^1.3.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "mocha": "^4.0.1",
     "node-sass": "^3.8.0",
-    "phantomjs": "^1.9.19",
-    "react": "^15.4.2",
-    "react-addons-test-utils": "^15.1.0",
-    "react-dom": "^15.4.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
     "watchify": "^3.7.0"

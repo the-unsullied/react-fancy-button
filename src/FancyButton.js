@@ -14,62 +14,58 @@ Component that acts as a button with spinner
 @param {Boolean} autoFocus autofocuses on button on render
 @param {Boolean} allowMultiClick defaults to false. If true, it will allow onClick handler to be triggered even if the prop trigger is true
 */
+import PropTypes from 'prop-types';
 import React from 'react';
-
 import classnames from 'classnames';
 import Spinner from './Spinner';
 
-export default React.createClass({
-  getDefaultProps: function() {
-    return {
-      type: 'submit',
-      classes: '',
-      disabled: false,
-      onClick: () => {},
-      onDisabledClick: () => {},
-      trigger: false,
-      label: 'Submit',
-      tabIndex: '',
-      autoFocus: false,
-      allowMultiClick: false,
-      spinnerZindex: 2e9
-    };
-  },
+export default class extends React.Component {
+  static defaultProps = {
+    type: 'submit',
+    classes: '',
+    disabled: false,
+    onClick: () => {},
+    onDisabledClick: () => {},
+    trigger: false,
+    label: 'Submit',
+    tabIndex: '',
+    autoFocus: false,
+    allowMultiClick: false,
+    spinnerZindex: 2e9
+  };
 
-  propTypes: {
-    type: React.PropTypes.string,
-    classes: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    onDisabledClick: React.PropTypes.func,
-    trigger: React.PropTypes.bool,
-    label: React.PropTypes.any,
-    ariaLabel: React.PropTypes.any,
-    role: React.PropTypes.any,
-    tabIndex: React.PropTypes.string,
-    autoFocus: React.PropTypes.bool,
-    allowMultiClick: React.PropTypes.bool,
-    spinnerZindex: React.PropTypes.number
-  },
+  static propTypes = {
+    type: PropTypes.string,
+    classes: PropTypes.string,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
+    onDisabledClick: PropTypes.func,
+    trigger: PropTypes.bool,
+    label: PropTypes.any,
+    ariaLabel: PropTypes.any,
+    role: PropTypes.any,
+    tabIndex: PropTypes.string,
+    autoFocus: PropTypes.bool,
+    allowMultiClick: PropTypes.bool,
+    spinnerZindex: PropTypes.number
+  };
 
-  getInitialState() {
-    return {
-      isSpinning: false
-    }
-  },
+  state = {
+    isSpinning: false
+  };
 
-  onDisabledClick() {
+  onDisabledClick = () => {
     const { onDisabledClick } = this.props;
     onDisabledClick && onDisabledClick();
-  },
+  };
 
-  handleClick(e) {
+  handleClick = (e) => {
     const { trigger, onClick, allowMultiClick } = this.props;
     if(trigger && !allowMultiClick) {
       return;
     }
     onClick(e);
-  },
+  };
 
   render() {
     const { type,
@@ -85,10 +81,10 @@ export default React.createClass({
     const opts = {
       color: '#fff',
       zIndex: spinnerZindex
-    }
+    };
 
     return <div ref="fancyButtonWrapper" className="fancy-button-wrapper">
-      { disabled ? <div ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick}></div> : null }
+      { disabled ? <div ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick} /> : null }
       <button ref="fancyButton"
         type={type}
         tabIndex={tabIndex}
@@ -105,4 +101,4 @@ export default React.createClass({
       </button>
     </div>
   }
-});
+}
