@@ -4,6 +4,9 @@
 
 ![Fancy Button Demo](https://github.com/the-unsullied/react-fancy-button/blob/demo/fancybuttondemo.gif)
 
+```
+  NOTE: v1.0.x has upgrade React to v16. If using older version React, please use latest previous version 0.2.21.
+```
 
 ## Install
 ```
