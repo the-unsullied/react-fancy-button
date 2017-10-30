@@ -102,7 +102,7 @@ var _class = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { ref: 'fancyButtonWrapper', className: 'fancy-button-wrapper' },
-        disabled ? _react2.default.createElement('div', { ref: 'disabledButtonShim', className: 'fancy-button__disabled', onClick: this.onDisabledClick }) : null,
+        disabled ? _react2.default.createElement('button', { ref: 'disabledButtonShim', className: 'fancy-button__disabled', onClick: this.onDisabledClick }) : null,
         _react2.default.createElement(
           'button',
           { ref: 'fancyButton',
