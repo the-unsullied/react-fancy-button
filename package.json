@@ -1,6 +1,6 @@
 {
   "name": "react-fancy-button",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A button with a spinner that is triggered by a boolean",
   "main": "./dist/FancyButton.js",
   "repository": {
