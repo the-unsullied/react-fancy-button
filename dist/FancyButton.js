@@ -43,7 +43,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @param {Boolean} autoFocus autofocuses on button on render
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @param {Boolean} allowMultiClick defaults to false. If true, it will allow onClick handler to be triggered even if the prop trigger is true
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
 var _class = function (_React$Component) {
@@ -92,7 +92,8 @@ var _class = function (_React$Component) {
           tabIndex = _props.tabIndex,
           autoFocus = _props.autoFocus,
           spinnerZindex = _props.spinnerZindex,
-          label = _props.label;
+          label = _props.label,
+          onFocus = _props.onFocus;
 
       var opts = {
         color: '#fff',
@@ -102,10 +103,11 @@ var _class = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { ref: 'fancyButtonWrapper', className: 'fancy-button-wrapper' },
-        disabled ? _react2.default.createElement('button', { ref: 'disabledButtonShim', className: 'fancy-button__disabled', onClick: this.onDisabledClick }) : null,
+        disabled ? _react2.default.createElement('button', { ref: 'disabledButtonShim', className: 'fancy-button__disabled', onClick: this.onDisabledClick, onFocus: onFocus }) : null,
         _react2.default.createElement(
           'button',
-          { ref: 'fancyButton',
+          {
+            ref: 'fancyButton',
             type: type,
             tabIndex: tabIndex,
             'aria-label': ariaLabel || label,
@@ -113,7 +115,9 @@ var _class = function (_React$Component) {
             autoFocus: autoFocus,
             className: (0, _classnames2.default)("fancy-button", classes),
             disabled: disabled,
-            onClick: this.handleClick },
+            onClick: this.handleClick,
+            onFocus: onFocus
+          },
           trigger ? _react2.default.createElement(_Spinner2.default, { opts: opts }) : null,
           _react2.default.createElement(
             'span',
@@ -134,6 +138,7 @@ _class.defaultProps = {
   disabled: false,
   onClick: function onClick() {},
   onDisabledClick: function onDisabledClick() {},
+  onFocus: function onFocus() {},
   trigger: false,
   label: 'Submit',
   tabIndex: '',
