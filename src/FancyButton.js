@@ -13,7 +13,7 @@ Component that acts as a button with spinner
 @param {Any|String} ariaLabel aria-label for button - defaults to what prop.label is set to
 @param {Boolean} autoFocus autofocuses on button on render
 @param {Boolean} allowMultiClick defaults to false. If true, it will allow onClick handler to be triggered even if the prop trigger is true
-*/
+ */
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
@@ -26,6 +26,7 @@ export default class extends React.Component {
     disabled: false,
     onClick: () => {},
     onDisabledClick: () => {},
+    onFocus: () => {},
     trigger: false,
     label: 'Submit',
     tabIndex: '',
@@ -77,15 +78,18 @@ export default class extends React.Component {
       tabIndex,
       autoFocus,
       spinnerZindex,
-      label } = this.props;
+      label,
+      onFocus
+    } = this.props;
     const opts = {
       color: '#fff',
       zIndex: spinnerZindex
     };
 
     return <div ref="fancyButtonWrapper" className="fancy-button-wrapper">
-      { disabled ? <button ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick} /> : null }
-      <button ref="fancyButton"
+      { disabled ? <button ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick} onFocus={onFocus} /> : null }
+      <button
+        ref="fancyButton"
         type={type}
         tabIndex={tabIndex}
         aria-label={ariaLabel || label}
@@ -93,7 +97,9 @@ export default class extends React.Component {
         autoFocus={autoFocus}
         className={classnames("fancy-button", classes)}
         disabled={disabled}
-        onClick={this.handleClick}>
+        onClick={this.handleClick}
+        onFocus={onFocus}
+      >
         { trigger ? <Spinner opts={opts} /> : null }
         <span className={classnames({'fancy-button__label-transparent': trigger})}>
           {label}
