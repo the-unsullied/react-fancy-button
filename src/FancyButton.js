@@ -87,7 +87,7 @@ export default class extends React.Component {
     };
 
     return <div ref="fancyButtonWrapper" className="fancy-button-wrapper">
-      { disabled ? <button arial-label={ariaLabel || label} ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick} onFocus={onFocus} /> : null }
+      { disabled ? <button aria-label={ariaLabel || label} ref='disabledButtonShim' className="fancy-button__disabled" onClick={this.onDisabledClick} onFocus={onFocus} /> : null }
       <button
         ref="fancyButton"
         type={type}
